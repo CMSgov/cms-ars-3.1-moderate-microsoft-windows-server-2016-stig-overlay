@@ -7,6 +7,11 @@ license: Apache-2.0
 summary: .
 version: 0.1.0
 
+supports:
+   - platform-name: 'windows_server_2016_essentials'
+   - platform-name: 'windows_server_2016_standard'
+   - platform-name: 'windows_server_2016_datacenter'
+
 depends:
 - name: microsoft-windows-server-2016-stig-baseline
   path: ../microsoft-windows-server-2016-stig-baseline
