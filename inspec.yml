@@ -1,75 +1,87 @@
-name: cms-ars3.1-moderate-microsoft-windows-server-2016-stig-overlay
-title: cms-ars3.1-moderate-microsoft-windows-server-2016-stig-overlay
+name: cms-ars-3.1-moderate-microsoft-windows-server-2016-stig-overlay
+title: cms-ars-3.1-moderate-microsoft-windows-server-2016-stig-overlay
 maintainer: CMS InSpec Dev Team
-copyright: .
-copyright_email: .
+copyright:
+copyright_email:
 license: Apache-2.0
-summary: .
-version: 0.1.0
+summary: "CMS ARS 3.1 Moderate Overlay InSpec Validation Profile for Windows Server 2016 STIG"
+version: 0.1.1
+inspec_version: ">= 4.0"
 
 depends:
 - name: microsoft-windows-server-2016-stig-baseline
-  path: ../microsoft-windows-server-2016-stig-baseline
+  url: https://github.com/mitre/microsoft-windows-server-2016-stig-baseline/archive/master.tar.gz
 
 inputs:
   - name: backup_operators
     description: 'List of authorized users in the Backup Operators Group'
     type: Array
     value: []
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: administrators
     description: 'List of authorized users in the local Administrators group'
     type: Array
-    value: ["Administrator",
-            "Domain Admins",
-            "Enterprise Admins"]
+    value: ["Administrator", "Domain Admins", "Enterprise Admins"]
+    sensitive: true
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: administrators_domain
     description: 'List of authorized users in the local Administrators domain group'
     type: Array
-    value: ["Administrator",
-            "Domain Admins",
-            "Enterprise Admins"]
+    value: ["Administrator", "Domain Admins", "Enterprise Admins"]
+    sensitive: true
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: temp_account
     description: 'List of temporary accounts on the system'
     type: Array
     value: ["tempuser"]
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: emergency_account
     description: 'List of emergency accounts on the system'
     type: Array
     value: []
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: administrator_domain_group
     description: 'List of authorized users in the local Administrators domain group'
     type: Array
     value: ["Administrator"]
+    sensitive: true
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: shared_accounts
     description: 'List of shared accounts on the system'
     type: Array
     value: []
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: has_ftp_server_role
     description: 'Set to true server has the ftp server role'
     type: Boolean
     value: true
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: forrest
     description: 'Domain Controller forrest name'
     type: String
     value: 'dc=testdomain, dc=com'
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: admin_account
     description: 'Default administator account'
     type: String
     value: 'Administrator'
+    sensitive: true
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: is_AD_only_system
     description: 'Set to true if the system is dedicated to the management of Active Directory'
     type: Boolean
     value: false
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: legal_notice_text
     description: 'Standard Legal Notice Text shown to the user on login'
@@ -81,38 +93,46 @@ inputs:
               *     By using this system, you understand and consent to the following:
               -     The Government may monitor, record, and audit your system usage, including usage of personal devices and email systems for official duties or to conduct HHS business. Therefore, you have no reasonable expectation of privacy regarding any communication or data transiting or stored on this system. At any time, and for any lawful Government purpose, the government may monitor, intercept, and search and seize any communication or data transiting or stored on this system.
               -     Any communication or data transiting or stored on this system may be disclosed or used for any lawful Government purpose."
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: legal_notice_caption
     description: 'Standard Legal Notice Caption to go along with the Standard Legal Notice Text'
     type: String
     value: "-= WARNING =- -= WARNING =- -= WARNING =-"
-    
+    profile: microsoft-windows-server-2016-stig-baseline
+
   - name: max_conn_idle_time
     description: 'Maximum connectivity time to directory server in seconds'
     type: Numeric
     value: 300
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: is_unclassified_system
     description: 'Set flag to true if the target system is unclassified'
     type: Boolean
     value: true
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: dod_certificates
     description: 'List of DoD Interoperability Root Certificates'
     type: Array
     value: []
+    profile: microsoft-windows-server-2016-stig-baseline
     
   - name: dod_cceb_certificates
     description: 'List of DoD Interoperability Root Certificates'
     type: Array
     value: []
+    profile: microsoft-windows-server-2016-stig-baseline
     
   - name: built_in_admin_account
     description: 'Default account name for Built-In Administrator'
     type: String
     value: "Administrator"
+    profile: microsoft-windows-server-2016-stig-baseline
 
   - name: manually_managed_app_service_accounts
     description: 'A list of all manually managed Application and Service account names'
     type: Array
     value: []
+    profile: microsoft-windows-server-2016-stig-baseline
